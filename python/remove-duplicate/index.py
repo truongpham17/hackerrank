@@ -2,6 +2,7 @@ import random
 from typing import List
 
 class Solution:
+    
     def removeDuplicates(self, nums: List[int]) -> int:
         pivot = 1
         for idx in range(1, len(nums)):
@@ -10,4 +11,5 @@ class Solution:
                 pivot += 1
         return pivot
 print(random.random())
+
 
