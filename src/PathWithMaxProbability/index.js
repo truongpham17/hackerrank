@@ -146,3 +146,28 @@ console.log(
     3
   )
 );
+
+
+// n range from 1..10^5
+// n^2 = 10^5^2 = 10^10 = 10 billion -> Time limit exceeded
+// 1 billion = 10^9 tick
+// 10^5 => nlogn = 10^5 * 5 = 5 * 10^5 = 5 million
+// 10^9 => O(n) 
+// 1000 => O(n^3) = 10^9
+// n <= 12 => O(n!) = 10^9
+// map, for -> memory
+// const map = new Map();
+// map.set(1, 2);
+// map.get(1); -> parse to array (memory: n)-> sort: nlogn
+// sort: nlogn
+// add O(1)
+// get O(1)
+// delete O(1)
+// update O(1)
+// dictionary
+// set : boolean
+// const set = new Set()
+// set.add(1); set.add(2);
+// set.has(1);
+
+// linked list -> Object

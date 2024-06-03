@@ -20,6 +20,7 @@ var minimumOperationsToWriteY = function (grid) {
   for (let i = middle + 1; i < n; i++) {
     insideY[grid[i][middle]]++
   }
+  // middle to top right
   for (let i = 0; i < n; i++) {
     if (middle - 1 - i < n && middle + 1 + i < n) {
       insideY[grid[middle - 1 - i][middle + 1 + i]]++
