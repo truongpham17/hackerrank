@@ -26,7 +26,6 @@ var strStr = function (haystack, needle) {
       zArr.push(R - L)
       R--
     } else {
-
       if (zArr[i - L] < R - i + 1) {
         zArr.push(zArr[i - L])
       } else {

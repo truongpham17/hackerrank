@@ -40,7 +40,6 @@ class SegmentTree {
 
     // Loop to find the sum in the range
     for (l += this.n, r += this.n; l < r; l >>= 1, r >>= 1) {
-      console.log(l, r)
       if (l & 1) sum += this.tree[l++];
       if (r & 1) sum += this.tree[--r];
     }
