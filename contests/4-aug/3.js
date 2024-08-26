@@ -1,3 +1,4 @@
+// TAGS: SEGMENT TREE PROPAGATE
 /**
  * @param {number} n
  * @param {number[][]} queries
