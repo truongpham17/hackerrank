@@ -1,6 +1,7 @@
 class MaxHeap {
-  constructor() {
+  constructor(compareFunc = (a, b) => a > b) {
     this.heap = [];
+    this.compareFunc = compareFunc
   }
 
   getParentIndex(index) {
@@ -26,16 +27,13 @@ class MaxHeap {
 
   heapifyUp() {
     let index = this.heap.length - 1;
-    while (this.getParentIndex(index) >= 0 && this.heap[this.getParentIndex(index)] < this.heap[index]) {
+    while (this.getParentIndex(index) >= 0 && this.compareFunc(this.heap[index], this.heap[this.getParentIndex(index)])) {
       this.swap(this.getParentIndex(index), index);
       index = this.getParentIndex(index);
     }
   }
 
   pop() {
-    if (this.heap.length === 0) {
-      throw new Error("Heap is empty");
-    }
     const maxValue = this.heap[0];
     const endValue = this.heap.pop();
     if (this.heap.length > 0) {
@@ -50,11 +48,11 @@ class MaxHeap {
     const leftChildIndex = this.getLeftChildIndex(index);
     const rightChildIndex = this.getRightChildIndex(index);
 
-    if (leftChildIndex < this.heap.length && this.heap[leftChildIndex] > this.heap[largest]) {
+    if (leftChildIndex < this.heap.length && this.compareFunc(this.heap[leftChildIndex], this.heap[largest])) {
       largest = leftChildIndex;
     }
 
-    if (rightChildIndex < this.heap.length && this.heap[rightChildIndex] > this.heap[largest]) {
+    if (rightChildIndex < this.heap.length && this.compareFunc(this.heap[rightChildIndex], this.heap[largest])) {
       largest = rightChildIndex;
     }
 
@@ -65,9 +63,6 @@ class MaxHeap {
   }
 
   peek() {
-    if (this.heap.length === 0) {
-      throw new Error("Heap is empty");
-    }
     return this.heap[0];
   }
 

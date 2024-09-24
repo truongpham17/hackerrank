@@ -1,50 +1,42 @@
+// https://leetcode.com/problems/stone-game-ii/description/?envType=daily-question&envId=2024-08-20
+// MEDIUM
 /**
  * @param {number[]} piles
  * @return {number}
  */
 var stoneGameII = function (piles) {
   const n = piles.length
-  // person, ending index, M
-  const dp = Array.from({ length: 2 }, () => Array.from({ length: n }, () => ({
-    value: 0,
-    m: 0
-  })))
 
-  dp[0][0] = {
-    value: piles[0],
-    m: 1
-  }
-  dp[1][0] = {
-    values: 0,
-    m: 1
-  }
+  // prefix sum
+  const ps = []
   let sum = 0;
-  const sumArr = []
-  for (const v of piles) {
-    sum += v
-    sumArr.push(sum)
+  for (const pile of piles) {
+    sum += pile
+    ps.push(sum)
   }
-  for (let i = 1; i < n; i++) {
-    for (let j = 0; j < i; j++) {
-      let m = dp[0][j].m
-      if (j + 2 * m >= i) {
-        if (sumArr[i] - dp[0][j].value > dp[1][i].value) {
-          dp[1][i].value = sumArr[i] - dp[0][j].value
-          dp[1][i].m = Math.max(m, i - j)
-        }
 
-      }
-      m = dp[1][j].m
+  const dp = Array.from({ length: piles.length }, () => Array(piles.length + 1).fill(null))
 
-      if (j + 2 * m >= i) {
-        if (sumArr[i] - dp[1][j].value > dp[0][i].value) {
-          dp[0][i].value = sumArr[i] - dp[1][j].value
-          dp[0][i].m = Math.max(m, i - j)
-        }
-      }
-
+  const cal = (isAlice, idx, m) => {
+    if (idx >= n) return 0
+    if (dp[idx][m] !== null) {
+      return dp[idx][m]
     }
+
+    let result = 0;
+    // asume get from 1 to 2 * m
+    for (let i = 1; i <= 2 * m; i++) {
+      // over n
+      if (idx + i >= n + 1) {
+        break
+      }
+
+      const sum = ps[ps.length - 1] - (idx > 0 ? ps[idx - 1] : 0) - cal(!isAlice, idx + i, Math.max(i, m))
+      result = Math.max(result, sum)
+    }
+    dp[idx][m] = result
+    return result
   }
-  console.log(dp)
+  return cal(true, 0, 1)
 };
-console.log(stoneGameII([2, 7, 9, 4, 4]))
+console.log(stoneGameII([1]))

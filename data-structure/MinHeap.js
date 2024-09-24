@@ -1,6 +1,7 @@
 class MinHeap {
-  constructor() {
+  constructor(compareFunc = (a, b) => a > b) {
     this.heap = [];
+    this.compareFunc = compareFunc
   }
 
   getParentIndex(index) {
@@ -26,7 +27,7 @@ class MinHeap {
 
   heapifyUp() {
     let index = this.heap.length - 1;
-    while (index > 0 && this.heap[this.getParentIndex(index)] > this.heap[index]) {
+    while (index > 0 && this.compareFunc(this.heap[this.getParentIndex(index)], this.heap[index])) {
       this.swap(this.getParentIndex(index), index);
       index = this.getParentIndex(index);
     }
@@ -38,11 +39,11 @@ class MinHeap {
     const rightChild = this.getRightChildIndex(index);
     const length = this.heap.length;
 
-    if (leftChild < length && this.heap[leftChild] < this.heap[smallest]) {
+    if (leftChild < length && this.compareFunc(this.heap[smallest], this.heap[leftChild])) {
       smallest = leftChild;
     }
 
-    if (rightChild < length && this.heap[rightChild] < this.heap[smallest]) {
+    if (rightChild < length && this.compareFunc(this.heap[smallest], this.heap[rightChild])) {
       smallest = rightChild;
     }
 
@@ -53,10 +54,7 @@ class MinHeap {
   }
 
   peek() {
-    if (this.heap.length === 0) {
-      throw new Error("Heap is empty!");
-    }
-    return this.heap[0];
+    return this.heap[0]
   }
 
   size() {
@@ -68,9 +66,6 @@ class MinHeap {
   }
 
   pop() {
-    if (this.isEmpty()) {
-      throw new Error("Heap is empty!");
-    }
     const minValue = this.heap[0];
     const endValue = this.heap.pop();
     if (!this.isEmpty()) {
