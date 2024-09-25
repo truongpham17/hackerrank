@@ -264,4 +264,4 @@ A comprehensive list of problem-solving topics to help you revise for your upcom
 
 ---
 
-Make sure to practice coding problems related to each of these topics to solidify your understanding. Good luck with your interview preparation!
+Good luck!
