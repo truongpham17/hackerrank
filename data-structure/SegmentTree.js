@@ -17,7 +17,6 @@ class SegmentTree {
       this.tree[i] = this.tree[i * 2] + this.tree[i * 2 + 1];
     }
   }
-
   // Update a value at index
   update(index, value) {
     // Set value at position p
@@ -33,7 +32,7 @@ class SegmentTree {
   // Function to get sum of elements in range [l, r)
   query(l, r) {
     if (l === 0 && r >= this.n) {
-      return this.tree[0]
+      return this.tree[1]
     }
 
     let sum = 0;
@@ -49,9 +48,9 @@ class SegmentTree {
 }
 
 // Usage example
-const arr = [1, 2, 3, 4, 5];
+const arr = [1, 2, 3];
 const segTree = new SegmentTree(arr);
-
-console.log(segTree.query(0, 5)); // Output: 5 (2 + 3)
+segTree.update(2, 5)
+console.log(segTree.query(0, 10)); // Output: 5 (2 + 3)
 // segTree.update(2, 10);
 // console.log(segTree.query(1, 3)); // Output: 12 (2 + 10)

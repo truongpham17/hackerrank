@@ -91,5 +91,3 @@ class Trie {
     return true; // Return true if the prefix exists
   }
 }
-
-console.log(sumPrefixScores(["abc", "ab", "bc", "b"]))

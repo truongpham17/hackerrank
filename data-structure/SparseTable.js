@@ -17,7 +17,6 @@ const minSparseTable = (array, left, right) => {
     }
     j += 1
   }
-  console.log("🚀 ~ minSparseTable ~ st:", st)
 
   const k = Math.floor(Math.log2(right - left + 1))
   const x = right - (1 << k) + 1;

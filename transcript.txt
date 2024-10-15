@@ -1,0 +1,22 @@
+Scrum Master: Good morning everyone, let's kick off the daily Scrum. Who would
+like to start off and fill us in on your progress?
+Developer 1: I'll start. Yesterday, I wrapped up the frontend of the registration page
+and today, I’m going to get started on the backend integration.
+Scrum Master: Great work. Do you have any blockers?
+Developer 1: No, I'm not running into any issues at the moment.
+Scrum Master: Alright, let's move on to the next person. What did you get done
+yesterday?
+Developer 2: I finished up the testing on the login page and began working on
+fixing a bug that the QA team discovered.
+Scrum Master: Excellent, do you need a hand with the bug fix?
+Developer 2: No, I think I can handle it on my own.
+Scrum Master: Alright, does anyone else have any issues to report?
+Developer 3: Yes, I'm struggling with a problem related to database connectivity.
+I've tried to fix it but I can't figure out the root cause.
+Scrum Master: Okay, seems like it could be complicated. Let's take this offline. Is
+there anything else that needs to be addressed before we wrap things up?
+Scrum Meeting
+Product Owner: Yes, I've added some new features to the backlog that we need to
+prioritise. Can we go over them in the next meeting?
+Scrum Master: Absolutely, I’ll make a note of it. Thanks everyone for your updates.
+Keep up the good work!

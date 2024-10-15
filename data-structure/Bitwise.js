@@ -72,3 +72,11 @@ const setRightmostUnsetBit = (num) => {
 const isPowerOfTwo = (num) => {
   return num > 0 && (num & (num - 1)) === 0;
 }
+
+const flipBit = (num, pos) => {
+  let mask = 0
+  for (const p of pos) {
+    mask |= 1 << p
+  }
+  return num ^ mask
+}
